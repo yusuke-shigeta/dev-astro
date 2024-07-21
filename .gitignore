@@ -4,6 +4,8 @@
 # dependencies
 /blog/node_modules/
 
+/blog/.vercel/
+
 # logs
 npm-debug.log*
 yarn-debug.log*
