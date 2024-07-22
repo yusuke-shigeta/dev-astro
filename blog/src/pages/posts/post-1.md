@@ -13,6 +13,9 @@ tags: ["astro", "blogging", "learning in public"]
 
 [Markdown チートシート](https://www.markdownguide.org/cheat-sheet/)
 
+文字化けしてんねー  
+charset とか設定してないからだよねきっと
+
 Published on: 2022-07-01
 
 Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
