@@ -1,12 +1,16 @@
-<!DOCTYPE html><h1 id="astro-の配列">astro の配列</h1>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">---</span></span>
+<!DOCTYPE html><h1 id="astroの書き方"><code>astro</code>の書き方!!</h1>
+<h2 id="配列">配列</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#6A737D">// 定義</span></span>
+<span class="line"><span style="color:#F97583">---</span></span>
 <span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> skills</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span><span style="color:#9ECBFF">"HTML"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"CSS"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"JavaScript"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"PHP"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"Astro"</span><span style="color:#E1E4E8">];</span></span>
 <span class="line"><span style="color:#F97583">---</span></span>
 <span class="line"></span>
+<span class="line"><span style="color:#6A737D">// 出力</span></span>
 <span class="line"><span style="color:#E1E4E8">{skills.</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">skill</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>{skill}&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>)}</span></span>
 <span class="line"></span></code></pre>
-<h1 id="astro-の条件分岐">astro の条件分岐</h1>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">---</span></span>
+<h2 id="条件分岐">条件分岐</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#6A737D">// 定義</span></span>
+<span class="line"><span style="color:#F97583">---</span></span>
 <span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> happy</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> finished</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> false</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> goal</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> 3</span><span style="color:#E1E4E8">;</span></span>
@@ -21,3 +25,26 @@
 <span class="line"><span style="color:#6A737D">// goalが3かどうか。これもしや、型も判定してる？</span></span>
 <span class="line"><span style="color:#E1E4E8">{goal </span><span style="color:#F97583">===</span><span style="color:#79B8FF"> 3</span><span style="color:#F97583"> ?</span><span style="color:#E1E4E8"> &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>My goal is to finish in 3 days.&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">:</span><span style="color:#E1E4E8"> &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>My goal is not 3 days.&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>}</span></span>
 <span class="line"></span></code></pre>
+<h2 id="style"><code>style!</code></h2>
+<h3 id="個々のページのスタイルを設定する場合">個々のページのスタイルを設定する場合</h3>
+<p>スタイルを適用させたいページの style タグ内に書くっぽい</p>
+<h3 id="フロントマターで-css-の変数も定義できちゃう">フロントマターで css の変数も定義できちゃう</h3>
+<p><code>define:vars={ {...} }</code>ディレクティブとかいうのを使用できる
+少しだるいけどまあまあ使えそう
+<code>scss</code>とかいらなくね？</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#6A737D">// フロントマター部分</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> skillColor</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> "navy"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#6A737D">/* CSS */</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">style</span><span style="color:#E1E4E8"> define:vars={{ </span><span style="color:#79B8FF">skillColor</span><span style="color:#E1E4E8"> }}</span><span style="color:#F97583">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">.skill</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">var</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">--skillColor</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span></code></pre>
+<h3 id="知らんプロパティでてきた">知らんプロパティでてきた</h3>
+<ul>
+<li><code>text-transform</code></li>
+</ul>
+<h2 id="フロントマタースクリプトって何やねん">フロントマタースクリプトって何やねん</h2>
+<p>多分、<code>astro</code>ファイルの上部で記述できる<code>JavaScript</code>のことやな</p>
