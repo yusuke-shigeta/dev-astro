@@ -1,0 +1,23 @@
+<!DOCTYPE html><h1 id="astro-の配列">astro の配列</h1>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">---</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> skills</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span><span style="color:#9ECBFF">"HTML"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"CSS"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"JavaScript"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"PHP"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"Astro"</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#F97583">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">{skills.</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">skill</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>{skill}&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>)}</span></span>
+<span class="line"></span></code></pre>
+<h1 id="astro-の条件分岐">astro の条件分岐</h1>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#F97583">---</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> happy</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> finished</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> false</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> goal</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> 3</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// happyがtrueかどうか</span></span>
+<span class="line"><span style="color:#E1E4E8">{happy </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#E1E4E8"> &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>I am happy to be learning Astro!&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// finishedがtrueかどうか</span></span>
+<span class="line"><span style="color:#E1E4E8">{finished </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#E1E4E8"> &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>I finished this tutorial!&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// goalが3かどうか。これもしや、型も判定してる？</span></span>
+<span class="line"><span style="color:#E1E4E8">{goal </span><span style="color:#F97583">===</span><span style="color:#79B8FF"> 3</span><span style="color:#F97583"> ?</span><span style="color:#E1E4E8"> &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>My goal is to finish in 3 days.&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">> </span><span style="color:#F97583">:</span><span style="color:#E1E4E8"> &#x3C;</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>My goal is not 3 days.&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>}</span></span>
+<span class="line"></span></code></pre>

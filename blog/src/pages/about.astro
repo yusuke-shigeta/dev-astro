@@ -9,6 +9,10 @@ const identity = {
 };
 
 const skills = ["HTML", "CSS", "JavaScript", "PHP", "Astro"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <html lang="ja">
@@ -48,4 +52,10 @@ const skills = ["HTML", "CSS", "JavaScript", "PHP", "Astro"];
   </ul>
   {skills.map((skill) => <p>{skill}</p>)}
   <p>↑1行で書かなあかんの？ いや違うな。タグで括ってやれば良さそうだ</p>
+
+  {happy && <p>I am happy to be learning Astro!</p>}
+
+  {finished && <p>I finished this tutorial!</p>}
+
+  {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
 </html>
