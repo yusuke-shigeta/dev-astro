@@ -77,3 +77,14 @@ import '../styles/global.css';
 ## フロントマタースクリプトって何やねん
 
 多分、`astro`ファイルの上部で記述できる`JavaScript`のことやな
+
+## コンポーネントきましたぁ
+
+- src/components ディレクトリを作成
+- src/components/Navigation.astro ファイル作成  
+  components ファイルは大文字からはじまんの？
+- index.astro で`import`。  
+  import は相対パス
+  ```js
+  <Navigation /> // 何この閉じスラッシュ
+  ```
