@@ -62,6 +62,18 @@ const skillColor = "navy";
 
 - `text-transform`
 
+### グローバルスタイルシートを追加する
+
+- src/styles/global.css 作成
+- フロントマタースクリプトで読み込み
+
+```js
+// フロントマタースクリプトで読み込み
+---
+import '../styles/global.css';
+---
+```
+
 ## フロントマタースクリプトって何やねん
 
 多分、`astro`ファイルの上部で記述できる`JavaScript`のことやな
