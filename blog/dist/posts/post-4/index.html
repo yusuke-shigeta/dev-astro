@@ -58,3 +58,86 @@
 <span class="line"></span></code></pre>
 <h2 id="フロントマタースクリプトって何やねん">フロントマタースクリプトって何やねん</h2>
 <p>多分、<code>astro</code>ファイルの上部で記述できる<code>JavaScript</code>のことやな</p>
+<h2 id="コンポーネントきましたぁ">コンポーネントきましたぁ</h2>
+<h3 id="ナビゲーションをコンポーネント化">ナビゲーションをコンポーネント化</h3>
+<ul>
+<li>src/components ディレクトリを作成</li>
+<li>src/components/Navigation.astro ファイル作成<br>
+components ファイルは大文字からはじまんの？エレメントだとわかりやすいようにか？</li>
+<li>index.astro で<code>import</code>。<br>
+import は相対パス
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#79B8FF">Navigation</span><span style="color:#E1E4E8"> /> </span><span style="color:#6A737D">// 何この閉じスラッシュ</span></span>
+<span class="line"></span></code></pre>
+</li>
+</ul>
+<h3 id="フッターのソーシャルメディアをコンポーネント化">フッターのソーシャルメディアをコンポーネント化</h3>
+<ul>
+<li>Footer.astro ファイル作成</li>
+<li>それぞれのページで作成したコンポーネントファイルを読み込み</li>
+<li>src/components/Social.astro ファイルを作成
+このファイルの役割わからん</li>
+<li><code>Social.astro</code>を作成。</li>
+<li>Footer.astro に、Social.astro をインポート</li>
+<li>Astro.props って何？よくわかんないけどすげーじゃん？</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#6A737D">// Social.astro</span></span>
+<span class="line"><span style="color:#F97583">---</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">platform</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">username</span><span style="color:#E1E4E8"> } </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> Astro.props;</span></span>
+<span class="line"><span style="color:#F97583">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">a</span><span style="color:#B392F0"> href</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{</span><span style="color:#9ECBFF">`https://www.${</span><span style="color:#E1E4E8">platform</span><span style="color:#9ECBFF">}.com/${</span><span style="color:#E1E4E8">username</span><span style="color:#9ECBFF">}`</span><span style="color:#E1E4E8">}>{platform}&#x3C;/</span><span style="color:#85E89D">a</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="js"><code><span class="line"><span style="color:#6A737D">// Footer.astro</span></span>
+<span class="line"><span style="color:#F97583">---</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> Social </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "./Social.astro"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">footer</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#79B8FF">Social</span><span style="color:#B392F0"> platform</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"twitter"</span><span style="color:#B392F0"> username</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"astrodotbuild"</span><span style="color:#E1E4E8"> /></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#79B8FF">Social</span><span style="color:#B392F0"> platform</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"github"</span><span style="color:#B392F0"> username</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"withastro"</span><span style="color:#E1E4E8"> /></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#79B8FF">Social</span><span style="color:#B392F0"> platform</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"youtube"</span><span style="color:#B392F0"> username</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"astrodotbuild"</span><span style="color:#E1E4E8"> /></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">footer</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span></code></pre>
+<ul>
+<li>components ファイルに style もかけちゃう<br>
+セレクタに指定するタグがファイル内にないと適用されない。<br>
+普通の css と違って、スコープが制限されてるから</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="astro"><code><span class="line"><span style="color:#6A737D">---</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">platform</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">username</span><span style="color:#E1E4E8"> } </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> Astro.props;</span></span>
+<span class="line"><span style="color:#6A737D">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">a</span><span style="color:#B392F0"> href</span><span style="color:#E1E4E8">={</span><span style="color:#9ECBFF">`https://www.${</span><span style="color:#E1E4E8">platform</span><span style="color:#9ECBFF">}.com/${</span><span style="color:#E1E4E8">username</span><span style="color:#9ECBFF">}`</span><span style="color:#E1E4E8">}>{platform}&#x3C;/</span><span style="color:#85E89D">a</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">style</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#85E89D">  a</span><span style="color:#E1E4E8"> { // </span><span style="color:#79B8FF">a</span><span style="color:#E1E4E8">タグがファイル内にないと適用されない</span></span>
+<span class="line"><span style="color:#79B8FF">    padding</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.5</span><span style="color:#F97583">rem</span><span style="color:#79B8FF"> 1</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">    color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">white</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">    background-color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#4c1d95</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">    text-decoration</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">none</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">style</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span></code></pre>
+<ul>
+<li>Footer の css はこんな感じ<br>
+style タグの位置は関係あんの？</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="astro"><code><span class="line"><span style="color:#6A737D">---</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> Social </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "./Social.astro"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#6A737D">---</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">style</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#85E89D">  footer</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">    display</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">flex</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">    gap</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">    margin-top</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">2</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">style</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">footer</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#79B8FF">Social</span><span style="color:#B392F0"> platform</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"twitter"</span><span style="color:#B392F0"> username</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"astrodotbuild"</span><span style="color:#E1E4E8"> /></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#79B8FF">Social</span><span style="color:#B392F0"> platform</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"github"</span><span style="color:#B392F0"> username</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"withastro"</span><span style="color:#E1E4E8"> /></span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x3C;</span><span style="color:#79B8FF">Social</span><span style="color:#B392F0"> platform</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"youtube"</span><span style="color:#B392F0"> username</span><span style="color:#E1E4E8">=</span><span style="color:#9ECBFF">"astrodotbuild"</span><span style="color:#E1E4E8"> /></span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">footer</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>

@@ -80,11 +80,90 @@ import '../styles/global.css';
 
 ## コンポーネントきましたぁ
 
+### ナビゲーションをコンポーネント化
+
 - src/components ディレクトリを作成
 - src/components/Navigation.astro ファイル作成  
-  components ファイルは大文字からはじまんの？
+  components ファイルは大文字からはじまんの？エレメントだとわかりやすいようにか？
 - index.astro で`import`。  
   import は相対パス
   ```js
   <Navigation /> // 何この閉じスラッシュ
   ```
+
+### フッターのソーシャルメディアをコンポーネント化
+
+- Footer.astro ファイル作成
+- それぞれのページで作成したコンポーネントファイルを読み込み
+- src/components/Social.astro ファイルを作成
+  このファイルの役割わからん
+- `Social.astro`を作成。
+- Footer.astro に、Social.astro をインポート
+- Astro.props って何？よくわかんないけどすげーじゃん？
+
+```js
+// Social.astro
+---
+const { platform, username } = Astro.props;
+---
+
+<a href={`https://www.${platform}.com/${username}`}>{platform}</a>
+```
+
+```js
+// Footer.astro
+---
+import Social from "./Social.astro";
+---
+
+<footer>
+  <Social platform="twitter" username="astrodotbuild" />
+  <Social platform="github" username="withastro" />
+  <Social platform="youtube" username="astrodotbuild" />
+</footer>
+```
+
+- components ファイルに style もかけちゃう  
+  セレクタに指定するタグがファイル内にないと適用されない。  
+  普通の css と違って、スコープが制限されてるから
+
+```astro
+---
+const { platform, username } = Astro.props;
+---
+
+<a href={`https://www.${platform}.com/${username}`}>{platform}</a>
+
+<style>
+  a { // aタグがファイル内にないと適用されない
+    padding: 0.5rem 1rem;
+    color: white;
+    background-color: #4c1d95;
+    text-decoration: none;
+  }
+</style>
+```
+
+- Footer の css はこんな感じ  
+  style タグの位置は関係あんの？
+
+```astro
+---
+import Social from "./Social.astro";
+---
+
+<style>
+  footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+</style>
+
+<footer>
+  <Social platform="twitter" username="astrodotbuild" />
+  <Social platform="github" username="withastro" />
+  <Social platform="youtube" username="astrodotbuild" />
+</footer>
+
+```
