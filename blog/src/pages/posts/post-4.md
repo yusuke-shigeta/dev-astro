@@ -169,3 +169,20 @@ import Social from "./Social.astro";
 </footer>
 
 ```
+
+## 最初の script をブラウザに送信する
+
+- hamburger メニューのスタイルを追加
+- src/scripts/ ディレクトリ追加
+- src/scripts/Hamburger.js ファイルを追加  
+  ファイル名は menu.js ⇨ Hamburger.js  
+  コンポーネントのファイル名と同じ方がわかりやすくない？
+- 各ページで import
+
+```astro
+<script>
+  import "../scripts/Hamburger.js";
+</script>
+```
+
+## レイアウト!!
