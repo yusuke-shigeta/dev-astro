@@ -1,3 +1,16 @@
+---
+layout: ../../layouts/MarkdownPostLayout.astro
+
+title: "My First Blog Post"
+pubDate: 2022-07-01
+description: "This is the first post of my new Astro blog."
+author: "Astro Learner"
+image:
+  url: "https://docs.astro.build/assets/rose.webp"
+  alt: "The Astro logo on a dark background with a pink glow."
+tags: ["astro", "blogging", "learning in public"]
+---
+
 # `astro`の書き方!!
 
 ## 配列
@@ -239,3 +252,13 @@ const pageTitle = "Home Page";
 - `<slot />`で出力されるものを、「子コンテンツ」とかっていうらしい
 
 - pageTitle を、BaseLayout に渡す
+
+# カスタムブログレイアウト？つくてみる
+
+- markdown 投稿用のレイアウトファイルを作成  
+  blog/src/layouts/MarkdownPostLayout.astro
+  `{frontmatter.title}`のように、`frontmatter`を使用すると、
+  YAML フロントマターの値をレイアウト コンポーネントのプロパティとして渡せる
+  YAML フロントマターっていうのは多分、.md ファイルの上で定義してる奴ら
+
+- pubDate などの定数を は Layout ファイルに記述
