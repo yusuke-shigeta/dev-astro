@@ -1,14 +1,14 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 
-title: "My First Blog Post"
+title: "post-4"
 pubDate: 2022-07-01
 description: "This is the first post of my new Astro blog."
 author: "Astro Learner"
 image:
   url: "https://docs.astro.build/assets/rose.webp"
   alt: "The Astro logo on a dark background with a pink glow."
-tags: ["astro", "blogging", "learning in public"]
+tags: ["astro", "learning in public"]
 ---
 
 # `astro`の書き方!!
@@ -253,7 +253,7 @@ const pageTitle = "Home Page";
 
 - pageTitle を、BaseLayout に渡す
 
-# カスタムブログレイアウト？つくてみる
+## カスタムブログレイアウト？つくてみる
 
 - markdown 投稿用のレイアウトファイルを作成  
   blog/src/layouts/MarkdownPostLayout.astro
@@ -262,3 +262,12 @@ const pageTitle = "Home Page";
   YAML フロントマターっていうのは多分、.md ファイルの上で定義してる奴ら
 
 - pubDate などの定数を は Layout ファイルに記述
+
+## レイアウトにもレイアウトがつかえるっぽい
+
+- blog/src/layouts/MarkdownPostLayout.astro に  
+  blog/src/layouts/BaseLayout.astro をインポート  
+  「ブログ投稿レイアウトをメインページレイアウト内にネストする」とかいうらしい  
+  ネストってなんや？
+
+- BaseLayout と、MarkdownPostLayout で出力する内容に重複がないように注意

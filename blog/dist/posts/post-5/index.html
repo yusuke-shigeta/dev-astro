@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="viewport" content="width=device-width"><meta name="generator" content="Astro v4.12.2"><title>AstroのAPIについて</title><style>a[data-astro-cid-yxtifmrq]{padding:.5rem 1rem;color:#fff;background-color:#4c1d95;text-decoration:none}footer[data-astro-cid-sz7xmlte]{display:flex;gap:1rem;margin:2rem 0 0}html{background-color:#f1f5f9;font-family:sans-serif}body{margin:0 auto;width:100%;max-width:80ch;padding:1rem;line-height:1.5}*{box-sizing:border-box;padding:0;margin:0}h1{margin:1rem 0;font-size:2.5rem}ul{padding:1rem}img{width:100%;height:auto}.hamburger{padding-right:20px;cursor:pointer}.hamburger .line{display:block;width:40px;height:5px;margin-bottom:10px;background-color:#ff9776}.nav-links{width:100%;top:5rem;left:48px;background-color:#ff9776;display:none;margin:0}.nav-links a{display:block;text-align:center;padding:10px 0;text-decoration:none;font-size:1.2rem;font-weight:700;text-transform:uppercase}.nav-links a:hover,.nav-links a:focus{background-color:#ff9776}.expanded{display:unset}@media screen and (min-width: 636px){.nav-links{margin-left:5em;display:block;position:static;width:auto;background:none}.nav-links a{display:inline-block;padding:15px 20px}.hamburger{display:none}}.thumbnail{max-width:300px}
+</style><script type="module">document.querySelector(".hamburger").addEventListener("click",()=>{document.querySelector(".nav-links").classList.toggle("expanded")});
+</script></head> <body> <header> <nav> <div class="hamburger"> <span class="line"></span> <span class="line"></span> <span class="line"></span> </div> <div class="nav-links"> <a href="/">Home</a> <a href="/about/">About</a> <a href="/blog/">Blog</a> </div> </nav> </header> <h1>AstroのAPIについて</h1>  <p>2024-08-10</p> <p><em>ブログサイトの作成を通じて、AstroのAPIを学ぶ</em></p> <p>Written by: 茂田ゆうすけ</p> <p>tags</p> <ul> <li>astro</li> </ul> <div class="thumbnail"><img src="https://docs.astro.build/assets/rose.webp" width="300" alt="The Astro logo on a dark background with a pink glow."></div> <h2 id="ブログ投稿アーカイブ">ブログ投稿アーカイブ</h2>
+<ul>
+<li><code>Astro.glob</code>登場<br>
+指定したディレクトリ配下の、指定したファイルを取得しとるぽい
+多分、配列が返ってきてる<br>
+ちなログ出力は、<code>console.log(allPosts)</code>で、ターミナルに出力される</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>// allPostsのログ</span></span>
+<span class="line"><span>[</span></span>
+<span class="line"><span>  {</span></span>
+<span class="line"><span>    frontmatter: [Getter],</span></span>
+<span class="line"><span>    file: [Getter],</span></span>
+<span class="line"><span>    url: [Getter],</span></span>
+<span class="line"><span>    rawContent: [Getter],</span></span>
+<span class="line"><span>    compiledContent: [Getter],</span></span>
+<span class="line"><span>    getHeadings: [Getter],</span></span>
+<span class="line"><span>    Content: [Getter],</span></span>
+<span class="line"><span>    default: [Function (anonymous)] {</span></span>
+<span class="line"><span>      isAstroComponentFactory: true,</span></span>
+<span class="line"><span>      moduleId: undefined,</span></span>
+<span class="line"><span>      propagation: undefined</span></span>
+<span class="line"><span>    },</span></span>
+<span class="line"><span>    [Symbol(Symbol.toStringTag)]: 'Module'</span></span>
+<span class="line"><span>  }</span></span>
+<span class="line"><span>]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// frontmatterのログ</span></span>
+<span class="line"><span>[</span></span>
+<span class="line"><span>  {</span></span>
+<span class="line"><span>    layout: '../../layouts/MarkdownPostLayout.astro',</span></span>
+<span class="line"><span>    title: 'AstroのAPI',</span></span>
+<span class="line"><span>    pubDate: '2024-08-10T00:00:00.000Z',</span></span>
+<span class="line"><span>    description: 'ブログサイトの作成を通じて、AstroのAPIを学ぶ',</span></span>
+<span class="line"><span>    author: '茂田ゆうすけ',</span></span>
+<span class="line"><span>    image: {</span></span>
+<span class="line"><span>      url: 'https://docs.astro.build/assets/rose.webp',</span></span>
+<span class="line"><span>      alt: 'The Astro logo on a dark background with a pink glow.'</span></span>
+<span class="line"><span>    },</span></span>
+<span class="line"><span>    tags: [ 'astro' ]</span></span>
+<span class="line"><span>  }</span></span>
+<span class="line"><span>]</span></span>
+<span class="line"><span></span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="astro"><code><span class="line"><span style="color:#6A737D">---</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> allPosts</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> Astro.</span><span style="color:#B392F0">glob</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"./posts/*.md"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#6A737D">---</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">ul</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#E1E4E8">  {allPosts.</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">post</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> &#x3C;</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">>&#x3C;</span><span style="color:#85E89D">a</span><span style="color:#B392F0"> href</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{post.url}>{post.frontmatter.title}&#x3C;/</span><span style="color:#85E89D">a</span><span style="color:#E1E4E8">>&#x3C;/</span><span style="color:#85E89D">li</span><span style="color:#E1E4E8">>)}</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">ul</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span></code></pre>
+<ul>
+<li>属性に動的な値を入れる場合、クオートで囲む必要はないらしい</li>
+</ul>
+<h2 id="ブログのリストをコンポーネント化したい">ブログのリストを、コンポーネント化したい</h2>
+<ul>
+<li>新しいコンポーネントファイルを作成<br>
+blog/src/components/ListBlog.astro</li>
+<li>title, url などを他ファイルに渡すため、Astro.props。</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="astro"><code><span class="line"><span style="color:#6A737D">---</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">title</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">url</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">description</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">pubDate</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">imageUrl</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">imageAlt</span><span style="color:#E1E4E8"> } </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> Astro.props;</span></span>
+<span class="line"><span style="color:#6A737D">---</span></span>
+<span class="line"></span></code></pre>
+<ul>
+<li>blog.astro で import し、タグは以下のような感じ</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="astro"><code><span class="line"><span style="color:#6A737D">---</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> BlogPost </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> "../components/ListBlog.astro"</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> allPosts</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> Astro.</span><span style="color:#B392F0">glob</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"./posts/*.md"</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> allFrontmatters</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> allPosts.</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">post</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> post.frontmatter);</span></span>
+<span class="line"><span style="color:#6A737D">---</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">ul</span><span style="color:#E1E4E8">></span></span>
+<span class="line"><span style="color:#6A737D">&#x3C;!-- url, title, description, pubDate, imageUrl, imageAlt --></span></span>
+<span class="line"><span style="color:#E1E4E8">  {allPosts.</span><span style="color:#B392F0">map</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">post</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> &#x3C;</span><span style="color:#79B8FF">BlogPost</span><span style="color:#B392F0"> url</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{post.url} </span><span style="color:#B392F0">title</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{post.frontmatter.title} />)}</span></span>
+<span class="line"><span style="color:#E1E4E8">&#x3C;/</span><span style="color:#85E89D">ul</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span></code></pre>
+<ul>
+<li>pubDate の出力例</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="astro"><code><span class="line"><span style="color:#E1E4E8">&#x3C;</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">>{frontmatter.pubDate.</span><span style="color:#B392F0">toString</span><span style="color:#E1E4E8">().</span><span style="color:#B392F0">slice</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">10</span><span style="color:#E1E4E8">)}&#x3C;/</span><span style="color:#85E89D">p</span><span style="color:#E1E4E8">></span></span>
+<span class="line"></span></code></pre>  <footer data-astro-cid-sz7xmlte> <a href="https://www.twitter.com/astrodotbuild" data-astro-cid-yxtifmrq>twitter</a>  <a href="https://www.github.com/withastro" data-astro-cid-yxtifmrq>github</a>  <a href="https://www.youtube.com/astrodotbuild" data-astro-cid-yxtifmrq>youtube</a>  </footer>   </body> </html>

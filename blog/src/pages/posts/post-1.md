@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 
-title: "My First Blog Post"
+title: "post-1"
 pubDate: 2024-08-08
 description: "ディスクリプションをLayoutに書いてみる"
 author: "Astro Learner"

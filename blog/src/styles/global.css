@@ -26,6 +26,11 @@ ul {
   padding: 1rem;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 /* nav styles */
 .hamburger {
   padding-right: 20px;
@@ -68,7 +73,6 @@ ul {
   display: unset;
 }
 
-/* min-widthはデスクトップ向け */
 @media screen and (min-width: 636px) {
   .nav-links {
     margin-left: 5em;
@@ -86,4 +90,9 @@ ul {
   .hamburger {
     display: none;
   }
+}
+
+/* サムネイル */
+.thumbnail {
+  max-width: 300px;
 }

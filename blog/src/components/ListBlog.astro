@@ -1,0 +1,14 @@
+---
+const { title, url, description, pubDate, imageUrl, imageAlt } = Astro.props;
+---
+
+<li>
+  <a href={url}>
+    <p>{title}</p>
+    <p>{description}</p>
+    <p>{pubDate.toString().slice(0, 10)}</p>
+    <div class="thumbnail">
+      <img src={imageUrl} alt={imageAlt} width="300" height="160" />
+    </div>
+  </a>
+</li>
