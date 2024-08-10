@@ -186,3 +186,56 @@ import Social from "./Social.astro";
 ```
 
 ## レイアウト!!
+
+- コンポーネントとの違いは何だ？
+  Astro コンポーネントをほぼ全てのページで使用している場合、
+  コンポーネントではなくレイアウトを使用した方がいいっぽい。
+
+- blog/src/layouts/BaseLayout.astro ファイルを作成
+
+```astro
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+const pageTitle = "Home Page";
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <Header />
+    <h1>{pageTitle}</h1>
+    <Footer />
+    <script>
+      import "../scripts/menu.js";
+    </script>
+  </body>
+</html>
+```
+
+- ページでレイアウトを使用する  
+  blog/src/pages/index.astro  
+  この段階では `h2` が出力されてないけど。
+
+```astro
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "Home Page";
+---
+
+<BaseLayout>
+  <h2>My awesome blog subtitle</h2>
+</BaseLayout>
+```
+
+- blog/src/layouts/BaseLayout.astro に`<slot />`を追加!  
+  `h2` 出力されたぁ
+- `<slot />`で出力されるものを、「子コンテンツ」とかっていうらしい
+
+- pageTitle を、BaseLayout に渡す

@@ -1,41 +1,16 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import "../styles/global.css";
-
+import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "My Astro Learning Blog";
 ---
 
-<!doctype html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>{pageTitle}</title>
-    <style>
-      h1 {
-        color: purple;
-        font-size: 4rem;
-      }
-    </style>
-  </head>
-  <body>
-    <Header />
+<BaseLayout pageTitle={pageTitle}>
+  <h2>My awesome blog subtitle</h2>
+  <p>This is where I will post about my journey learning Astro.</p>
 
-    <h1>{pageTitle}</h1>
-    <p>This is where I will post about my journey learning Astro.</p>
-
-    <ul>
-      <li><a href="/posts/post-1/">Post 1</a></li>
-      <li><a href="/posts/post-2/">Post 2</a></li>
-      <li><a href="/posts/post-3/">Post 3</a></li>
-      <li><a href="/posts/post-4/">Post 4</a></li>
-    </ul>
-    <Footer />
-    <script>
-      import "../scripts/Hamburger.js";
-    </script>
-  </body>
-</html>
+  <ul>
+    <li><a href="/posts/post-1/">Post 1</a></li>
+    <li><a href="/posts/post-2/">Post 2</a></li>
+    <li><a href="/posts/post-3/">Post 3</a></li>
+    <li><a href="/posts/post-4/">Post 4</a></li>
+  </ul>
+</BaseLayout>

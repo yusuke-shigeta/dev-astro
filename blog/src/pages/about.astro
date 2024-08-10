@@ -1,9 +1,7 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-const pageTitle = "About Me!";
+const pageTitle = "About Me!!";
 
 const identity = {
   firstName: "茂田",
@@ -22,39 +20,14 @@ const skillColor = "navy";
 const fontWeight = "bold";
 const textCase = "uppercase"
 ---
+<BaseLayout pageTitle={pageTitle}>
+  <h2>... and my new Astro site!</h2>
 
-<html lang="ja">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{pageTitle}</title>
-    <style define:vars={{ skillColor, fontWeight, textCase }}>
-      body {
-        font-family: font-family: 'ヒラギノ角ゴシック','Hiragino Sans',YuGothic,'Yu Gothic',sans-serif;;
-      }
+  <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
 
-      h1 {
-        color: purple;
-        font-size: 4rem;
-      }
+  <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
 
-      .skill {
-        color: var(--skillColor);
-        font-weight: var(--fontWeight);
-        text-transform: var(--textCase);
-      }
-    </style>
-  </head>
-  <body>
-    <Header />
-    <h1>{pageTitle}</h1>
-    <h2>... and my new Astro site!</h2>
-
-    <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
-
-    <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
-
-    <p>Here are a few facts about me:</p>
+  <p>Here are a few facts about me:</p>
 
   <ul>
     <li>My name is {identity.firstName}.</li>
@@ -79,9 +52,21 @@ const textCase = "uppercase"
   {finished && <p>I finished this tutorial!</p>}
 
   {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
-    <Footer />
-    <script>
-      import "../scripts/Hamburger.js";
-    </script>
-  </body>
-</html>
+</BaseLayout>
+
+<style define:vars={{ skillColor, fontWeight, textCase }}>
+  body {
+    font-family: font-family: 'ヒラギノ角ゴシック','Hiragino Sans',YuGothic,'Yu Gothic',sans-serif;;
+  }
+
+  h1 {
+    color: purple;
+    font-size: 4rem;
+  }
+
+  .skill {
+    color: var(--skillColor);
+    font-weight: var(--fontWeight);
+    text-transform: var(--textCase);
+  }
+</style>
