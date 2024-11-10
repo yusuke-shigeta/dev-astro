@@ -1,3 +1,4 @@
+/* common: */
 html {
   background-color: #f1f5f9;
   font-family: sans-serif;
@@ -30,8 +31,9 @@ img {
   width: 100%;
   height: auto;
 }
+/* common; */
 
-/* nav styles */
+/* hamburger: */
 .hamburger {
   padding-right: 20px;
   cursor: pointer;
@@ -92,7 +94,10 @@ img {
   }
 }
 
-/* サムネイル */
+/* hamburger; */
+
+/* thumbnail: */
 .thumbnail {
   max-width: 300px;
 }
+/* thumbnail; */

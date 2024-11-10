@@ -249,7 +249,6 @@ const pageTitle = "Home Page";
 
 - blog/src/layouts/BaseLayout.astro に`<slot />`を追加!  
   `h2` 出力されたぁ
-- `<slot />`で出力されるものを、「子コンテンツ」とかっていうらしい
 
 - pageTitle を、BaseLayout に渡す
 
