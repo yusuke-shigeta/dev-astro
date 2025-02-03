@@ -11,12 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-        - uses: actions/checkout@v2
-        - name: FTP-Deploy-Action
-          uses: SamKirkland/FTP-Deploy-Action@4.2.0
-          with:
-              server: ${{ secrets.PROD_SERVER }}
-              username: ${{ secrets.PROD_USERNAME }}
-              password: ${{ secrets.PROD_PASSWORD }}
-              local-dir: ./blog/dist/
-              server-dir: /sigeblog.org/public_html/
+      - uses: actions/checkout@v2
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@4.2.0
+        with:
+          server: ${{ secrets.PROD_SERVER }}
+          username: ${{ secrets.PROD_USERNAME }}
+          password: ${{ secrets.PROD_PASSWORD }}
+          local-dir: ./blog/dist/
+          server-dir: /dnw-web.com/public_html/blog/

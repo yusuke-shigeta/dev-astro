@@ -8,16 +8,7 @@ author: "茂田"
 image:
   url: "https://docs.astro.build/assets/rose.webp"
   alt: "The Astro logo on a dark background with a pink glow."
-tags: ["astro", "successes", "community", "blogging", "setbacks", "learning in public"]
+tags: ["astro", "ブログ", "公開学習"]
 ---
 
-- 新しいページを作成
-  src/pages/tags/[tag].astro
-
-- dist とは
-
-  ```
-  distはdistribution（配布・分配）の略。
-  完成して配布するもの、という意味からか、
-  ビルドしたファイル群を格納するディレクトリにはこの名前がよくつけられる。
-  ```
+- [タグページを生成する](https://docs.astro.build/ja/tutorial/5-astro-api/2/)
