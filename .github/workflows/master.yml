@@ -19,4 +19,4 @@ jobs:
           username: ${{ secrets.PROD_USERNAME }}
           password: ${{ secrets.PROD_PASSWORD }}
           local-dir: ./blog/dist/
-          server-dir: /dnw-web.com/public_html/blog/
+          server-dir: /dnw-web.com/public_html/
