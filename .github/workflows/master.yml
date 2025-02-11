@@ -1,22 +1,22 @@
-name: Production Deploy
+# name: Production Deploy
 
-on:
-  push:
-    branches:
-      - master
+# on:
+#   push:
+#     branches:
+#       - master
 
-jobs:
-  FTP-Deploy-Action:
-    name: FTP-Deploy-Action
-    runs-on: ubuntu-latest
+# jobs:
+#   FTP-Deploy-Action:
+#     name: FTP-Deploy-Action
+#     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
-      - name: FTP-Deploy-Action
-        uses: SamKirkland/FTP-Deploy-Action@4.2.0
-        with:
-          server: ${{ secrets.PROD_SERVER }}
-          username: ${{ secrets.PROD_USERNAME }}
-          password: ${{ secrets.PROD_PASSWORD }}
-          local-dir: ./blog/dist/
-          server-dir: /yusuke-shigeta.com/public_html/
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: FTP-Deploy-Action
+#         uses: SamKirkland/FTP-Deploy-Action@4.2.0
+#         with:
+#           server: ${{ secrets.PROD_SERVER }}
+#           username: ${{ secrets.PROD_USERNAME }}
+#           password: ${{ secrets.PROD_PASSWORD }}
+#           local-dir: ./blog/dist/
+#           server-dir: /yusuke-shigeta.com/public_html/
